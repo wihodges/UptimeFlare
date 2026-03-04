@@ -12,6 +12,14 @@ export interface Env {
 }
 
 const Worker = {
+  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+    const url = new URL(request.url)
+    if (url.pathname === '/trigger') {
+      ctx.waitUntil(this.scheduled({} as ScheduledEvent, env, ctx))
+      return new Response('Triggered scheduled check')
+    }
+    return new Response('UptimeFlare Worker OK')
+  },
   async scheduled(event: ScheduledEvent, env: Env, ctx: ExecutionContext): Promise<void> {
     const workerLocation = (await getWorkerLocation()) || 'ERROR'
     console.log(`Running scheduled event on ${workerLocation}...`)
