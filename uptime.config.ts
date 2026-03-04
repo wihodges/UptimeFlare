@@ -112,7 +112,7 @@ const workerConfig: WorkerConfig = {
   ],
   notification: {
     webhook: {
-      url: 'http://100.81.239.43:3205/uptime-critical',
+      url: 'https://ntfy.xdlab.co/uptime-critical',
       method: 'POST',
       headers: {
         'Authorization': 'Bearer tk_i8w4t3mj1hxmp7nsopf5clwdukxtz',
