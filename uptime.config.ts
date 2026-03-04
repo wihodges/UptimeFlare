@@ -115,6 +115,7 @@ const workerConfig: WorkerConfig = {
       url: 'http://100.81.239.43:3205/uptime-critical',
       method: 'POST',
       headers: {
+        'Authorization': 'Bearer tk_i8w4t3mj1hxmp7nsopf5clwdukxtz',
         'Priority': 'urgent',
         'Tags': 'warning,rotating_light',
         'Title': 'UptimeFlare Alert',
